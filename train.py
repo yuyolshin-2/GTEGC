@@ -70,7 +70,7 @@ def train_batch(args, model, features, adj, optimizer,
 
     contrast_loss = 0.0
     if contrast:
-        instance_contrast_loss = Ncontrast(z_proto, adj, temperature=args.tau)
+        instance_contrast_loss = args.alpha * Ncontrast(z_proto, adj, temperature=args.tau)
     else:
         instance_contrast_loss = 0.0
 
