@@ -16,9 +16,9 @@ import copy
 import os
 import sys
 
-from models_ssl import PCL, run_kmeans, ablation_noTE, GNNmodel, MLPmodel
-from utils_ssl import get_A_r, load_dataset, metric, NetworkDataLoader, masked_mae, MultiNetworkDataLoader, extract_subgraph_from_indices, sparse_mx_to_torch_sparse_tensor
-from train_ssl import fit_eval_reg, train_batch, eval_batch
+from models import PCL, run_kmeans, ablation_noTE, GNNmodel, MLPmodel
+from utils import get_A_r, load_dataset, metric, NetworkDataLoader, masked_mae, MultiNetworkDataLoader, extract_subgraph_from_indices, sparse_mx_to_torch_sparse_tensor
+from train import fit_eval_reg, train_batch, eval_batch
 from normalization import diff_normalized_adjacency
 import warnings
 warnings.filterwarnings('ignore')
@@ -295,12 +295,12 @@ def main():
     tid = time.time()
     print('total time spent: {} min {:.2f} sec'.format((tid - ts) // 60, (tid - ts) % 60))
 
-    save_directory = os.path.join('results_ssl', '.'.join(args.area) + '(Train)', args.save_foldername)
+    save_directory = os.path.join('results', '.'.join(args.area) + '(Train)', args.save_foldername)
     if not os.path.exists(save_directory):
         os.mkdir(save_directory)
 
     if cluster_results is not None:
-        with open('results_ssl/' + '.'.join(args.area) + '(Train)/' + args.save_foldername +
+        with open('results/' + '.'.join(args.area) + '(Train)/' + args.save_foldername +
                   '/cluster_results_' + str(tid) + '.pkl', 'wb') as f:
             pickle.dump(cluster_results, f)
 
