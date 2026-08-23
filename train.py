@@ -3,7 +3,7 @@ import torch.nn.functional as F
 from numba.cloudpickle import instance
 from torch.nn.functional import mse_loss
 
-from utils_ssl import metric, get_feature_dis_ncontrast, masked_mae
+from utils import metric, get_feature_dis_ncontrast, masked_mae
 from normalization import standardize
 import numpy as np
 import sys
