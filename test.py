@@ -17,9 +17,9 @@ import os
 import glob
 import sys
 
-from models_ssl import GTEGC
-from utils_ssl import get_A_r, load_dataset, metric, NetworkDataLoader, masked_mae, MultiNetworkDataLoader, extract_subgraph_from_indices, sparse_mx_to_torch_sparse_tensor
-from train_ssl import fit_eval_reg, train_batch, eval_batch
+from models import GTEGC
+from utils import get_A_r, load_dataset, metric, NetworkDataLoader, masked_mae, MultiNetworkDataLoader, extract_subgraph_from_indices, sparse_mx_to_torch_sparse_tensor
+from train import fit_eval_reg, train_batch, eval_batch
 from normalization import diff_normalized_adjacency
 import warnings
 warnings.filterwarnings('ignore')
